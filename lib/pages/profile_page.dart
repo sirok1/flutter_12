@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_4/components/profile_text_field.dart';
-import 'package:flutter_4/models/user.dart';
 import 'package:flutter_4/page_wrapper.dart';
 import 'package:flutter_4/pages/edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  final User user;
-  const ProfilePage({super.key, required this.user});
+  const ProfilePage({super.key});
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
