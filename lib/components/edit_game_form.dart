@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_4/models/game.dart';
-import 'package:flutter_4/api/api_service.dart';
+import 'package:flutter_4/services/api_service.dart';
 
 class EditGameForm extends StatefulWidget {
   final Game game;

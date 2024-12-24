@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_4/components/auth_gate.dart';
 import 'package:flutter_4/components/cart_icon.dart';
 import 'package:flutter_4/models/cart_item.dart';
 import 'package:flutter_4/models/game.dart';
@@ -107,7 +108,7 @@ class PageWrapperState extends State<PageWrapper> {
         addToCart: _addToCart,
         removeFromCart: _removeFromCart,
       ),
-      ProfilePage(user: user)
+      AuthGate()
     ];
     return Scaffold(
       body: _pages.elementAt(_selectedPageIndex),

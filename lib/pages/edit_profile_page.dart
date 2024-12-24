@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_4/models/user.dart';
-import 'package:flutter_4/page_wrapper.dart';
+import 'package:flutter_4/services/auth_service.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
@@ -20,6 +20,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final authService = AuthService();
 
   void _changeProfileImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -34,17 +35,24 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   void _saveChanges(BuildContext context) {
-    if (_imagePath.isEmpty ||
-        _imagePath.length <= 1 ||
-        _nameController.text.isEmpty ||
+    if (_nameController.text.isEmpty ||
         _emailController.text.isEmpty ||
         _phoneController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text("Вы заполнили не все поля")));
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Вы заполнили не все поля")));
     } else {
-      user = User(_nameController.text, _emailController.text,
-          _phoneController.text, _imagePath);
+      authService.updateUserProfile(
+          _nameController.text, _emailController.text, _phoneController.text);
+      Navigator.pop(context);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController.text = widget.user.name;
+    _emailController.text = widget.user.email;
+    _phoneController.text = widget.user.phoneNumber;
   }
 
   @override
@@ -56,7 +64,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
-          IconButton(onPressed: () => _saveChanges(context), icon: const Icon(Icons.save))
+          IconButton(
+              onPressed: () => _saveChanges(context),
+              icon: const Icon(Icons.save))
         ],
       ),
       body: Column(
