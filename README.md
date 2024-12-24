@@ -2,10 +2,10 @@
 
 ЭФБО-05-22
 
-![image](https://github.com/user-attachments/assets/84bb9dcf-c58e-4499-9c19-f63c69328d63)
+https://github.com/user-attachments/assets/f970d942-d44a-416f-978a-783a18dc1bff
 
-![image](https://github.com/user-attachments/assets/c53cd31d-39b5-41e4-bc81-50f620a15002)
+![NVIDIA_Overlay_1OriIaqzzd](https://github.com/user-attachments/assets/f4c3def8-03f4-46da-83c6-c9457c814386)
 
 
-
+![firefox_aggeYyKXFo](https://github.com/user-attachments/assets/dc77ecd4-b43f-4a56-8ee4-15c20d06ae89)
 
