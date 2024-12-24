@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_4/pages/chat_page.dart';
 import 'package:flutter_4/services/api_service.dart';
 import 'package:flutter_4/components/game_item.dart';
 import 'package:flutter_4/models/cart_item.dart';
@@ -118,7 +119,10 @@ class _CatalogPageState extends State<CatalogPage> {
   Future<List<Game>> _loadGames() async {
     List<Game> games = await ApiService().getProducts();
     if (_searchQuery.isNotEmpty) {
-      games = games.where((game) => game.name.toLowerCase().contains(_searchQuery.toLowerCase())).toList();
+      games = games
+          .where((game) =>
+              game.name.toLowerCase().contains(_searchQuery.toLowerCase()))
+          .toList();
     }
     return games;
   }
@@ -145,10 +149,24 @@ class _CatalogPageState extends State<CatalogPage> {
             "Каталог игр",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.chat),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatPage(),
+                  ),
+                );
+              },
+            ),
+          ],
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(60.0),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,

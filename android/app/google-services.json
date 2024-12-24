@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "10184593103",
+    "project_id": "flutter-mirea",
+    "storage_bucket": "flutter-mirea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10184593103:android:a60443c3ae69fea38371ba",
+        "android_client_info": {
+          "package_name": "com.example.flutter_4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeyz5BsW8bXOur0cz7PPsJAlops7jf7S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

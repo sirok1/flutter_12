@@ -1,0 +1,25 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "flutter-mirea",
+                    "appId": "1:10184593103:android:a60443c3ae69fea38371ba",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "flutter-mirea",
+                    "configurations": {
+                        "android": "1:10184593103:android:a60443c3ae69fea38371ba",
+                        "ios": "1:10184593103:ios:54122ccdbe3eeae88371ba",
+                        "macos": "1:10184593103:ios:54122ccdbe3eeae88371ba",
+                        "web": "1:10184593103:web:c0b6238fb6e986398371ba",
+                        "windows": "1:10184593103:web:68a8a187265e20c58371ba"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,19 +3,10 @@ import 'package:flutter_4/components/auth_gate.dart';
 import 'package:flutter_4/components/cart_icon.dart';
 import 'package:flutter_4/models/cart_item.dart';
 import 'package:flutter_4/models/game.dart';
-import 'package:flutter_4/models/user.dart';
 import 'package:flutter_4/pages/cart_page.dart';
 import 'package:flutter_4/pages/catalog_page.dart';
 import 'package:flutter_4/pages/favorites_page.dart';
-import 'package:flutter_4/pages/profile_page.dart';
 import 'package:logger/logger.dart';
-
-User user = User(
-  "Александр Журавлёв",
-  "sirok@yanima.space",
-  "+7911111111",
-  "https://sun9-48.userapi.com/impg/Vg2H3hop-IGICTWqnDbp4uiIniMYUBTCqu_6IQ/vUu0J5gVyhQ.jpg?size=960x1200&quality=95&sign=e5c3185d47fc21b8a2cef88d7a1e4a9f&type=album",
-);
 
 class PageWrapper extends StatefulWidget {
   final int selectedPageIndex;
