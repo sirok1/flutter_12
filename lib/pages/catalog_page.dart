@@ -25,6 +25,7 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
   late Future<List<Game>> _games;
+  String _searchQuery = '';
 
   void _showAddGameDialog() {
     final TextEditingController idController = TextEditingController();
@@ -116,7 +117,17 @@ class _CatalogPageState extends State<CatalogPage> {
 
   Future<List<Game>> _loadGames() async {
     List<Game> games = await ApiService().getProducts();
+    if (_searchQuery.isNotEmpty) {
+      games = games.where((game) => game.name.toLowerCase().contains(_searchQuery.toLowerCase())).toList();
+    }
     return games;
+  }
+
+  void _onSearchChanged(String query) {
+    setState(() {
+      _searchQuery = query;
+      _games = _loadGames();
+    });
   }
 
   Future<void> _refreshGames() async {
@@ -133,6 +144,35 @@ class _CatalogPageState extends State<CatalogPage> {
           title: const Text(
             "Каталог игр",
             style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(60.0),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  onChanged: _onSearchChanged,
+                  showCursor: false,
+                  decoration: InputDecoration(
+                    hintText: 'Поиск по названию...',
+                    border: InputBorder.none,
+                    prefixIcon: const Icon(Icons.search),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 15.0),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
         body: RefreshIndicator(
